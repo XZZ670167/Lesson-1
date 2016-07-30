@@ -1,0 +1,58 @@
+<html>
+
+<body>
+    <div id='d1'>This will be changed!</div>
+    <div id='d2'>This will be changed!</div>
+    <script>
+        // --------------------------------------------------------------------
+        // This is just a generic function to show things on the web page
+        // We do this to reduce all the same code everywhere. This is part of 
+        // reuse of codes
+        // Each function should do one thing and try to avoid doing too many things        
+        function showOnWebPage(id, message) {
+            document.getElementById(id).innerHTML = message;
+        }
+
+        // --------------------------------------------------------------------
+        // Homework #1: Print out all prime numbers from 1 - 100 (inclusive)
+        function hasDivisor(n) {
+            var p = n;
+            while (p > 2) {
+                if (n % (p - 1) == 0) {
+                    return true;
+                }
+                p--;
+            }
+            return false;
+        }
+
+        showOnWebPage('d1', "Homeworkd#1 answer:<br>");
+        for (var n = 1; n <= 100; n++) {
+            if (!hasDivisor(n)) {
+                console.log(n + " is a prime\n");
+                showOnWebPage('d1', document.getElementById('d1').innerHTML + n + " is a prime<br>");
+            }
+        }
+
+        // --------------------------------------------------------------------
+        // Homework #2: Given a day of month, month and year, find out on which 
+        // day of the week is that date (dd/mm/yyyy)
+        // where dd = 1 - 31, mm = 01 - 12, yyyy = 1970 - 3999
+        showOnWebPage('d2', "Homeworkd#2 answer:<br>");
+
+        function getDayOfDate(dd, mm, yyyy) {
+            var MonthsLookup = [
+                "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
+            ];
+            var myDate = new Date(yyyy, (mm - 1), dd); // This is the first glimpse of using Objects
+            return MonthsLookup[myDate.getDay()];
+        }
+
+        var homeworkResult2 = getDayOfDate(29, 08, 2016);
+        console.log("The day is " + homeworkResult2);
+        showOnWebPage('d2', document.getElementById('d2').innerHTML + homeworkResult2);
+
+    </script>
+</body>
+
+</html>

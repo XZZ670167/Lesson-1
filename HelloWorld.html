@@ -1,0 +1,67 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <div id='d1'>This will be changed!</div>
+    <div id='d2'>This will be changed!</div>
+
+
+    <script type='text/javascript'>
+        //Reference : http://www.w3schools.com/js/default.asp
+
+        // --------------------------------------------------------------------
+        // This is just a generic function to show things on the web page
+        // We do this to reduce all the same code everywhere. This is part of 
+        // reuse of codes
+        // Each function should do one thing and try to avoid doing too many things        
+        function showOnWebPage(id, message) {
+            document.getElementById(id).innerHTML = message;
+        }
+
+        // --------------------------------------------------------------------
+        // Tutorial #1: Show something on the screen. Basic HTML with Javascript section
+        function helloWorld() {
+            console.log("Hello World!");
+            showOnWebPage('d1', 'Hello World!');
+        }
+
+        helloWorld();
+
+        // --------------------------------------------------------------------
+        // Tutorial #2: For loops, passing args, declaration of variables
+        // loose typing
+        function fibo(n) {
+            var n1 = 1;
+            var n2 = 1;
+            var n3; // this is the next number to be computed
+            var result = "1 1 ";
+            do {
+                n3 = n1 + n2;
+                if (n3 > n) {
+                    break;
+                }
+                n1 = n2;
+                n2 = n3;
+                result += n3 + " ";
+            } while (true);
+            return result;
+        }
+
+        var tutorial2Result = fibo(100);
+        console.log("Number = " + tutorial2Result);
+        showOnWebPage('d2', tutorial2Result);
+
+        // The implementation below is a recursive approach and gives a 
+        // good example how we can reduce the amount of codes using
+        // recursive approach
+        function fibonacci(n) {
+            return n < 1 ? 0 : n <= 2 ? 1 : fibonacci(n - 1) + fibonacci(n - 2);
+        }
+
+
+    </script>
+</body>
+
+</html>
